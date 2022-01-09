@@ -1,5 +1,4 @@
 import { FC, useState } from 'react';
-import { styled, Box } from '@mui/material';
 import iconimage from '../icon.png';
 
 import { useHistory } from 'react-router-dom';
@@ -13,6 +12,16 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormHelperText from '@mui/material/FormHelperText';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Grid from '@mui/material/Grid';
+import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+const Item = styled(Paper)(({ theme }) => ({
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
 export const Birthday: FC = ({ children }) => {
   const history = useHistory();
   const welcometext = "Welcome !Let's complete your profile";
@@ -127,29 +136,33 @@ export const Birthday: FC = ({ children }) => {
   return (
     <LayoutWrapper>
       <ContentWrapper>
-        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-          <Container maxWidth="md" sx={{ marginTop: '80px' }}>
+        <Box component="main" sx={{ flexGrow: 1, p: 3, width: '100%' }}>
+          <Container maxWidth="md" sx={{ marginTop: '80px', width: '100%' }}>
             <Box
               sx={{
                 bgcolor: '#150F1A',
                 minHeight: '70vh',
-                padding: '10px 50px 30px 50px',
-                marginLeft: '135px',
-                marginRight: '135px',
+                padding: '1% 10% 4% 10%',
+                marginLeft: '10%',
+                marginRight: '10%',
                 boxShadow:
                   'rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px',
               }}
             >
-              <Typography
-                component="div"
-                sx={{ marginTop: '5%', display: 'grid', justifyContent: 'center', alignItems: 'center' }}
-              >
+              <Typography component="div" sx={{ marginTop: '5%', justifyContent: 'center', alignItems: 'center' }}>
                 <Typography component="div" sx={{ display: 'grid', justifyContent: 'center', alignItems: 'center' }}>
                   <StyledLogo src={iconimage} alt="icon" />
                 </Typography>
                 <Typography
                   component="p"
-                  sx={{ textAlign: 'center', fontSize: '25px', fontFamily: 'sans-serif', maxWidth: '100%' }}
+                  className="welcomspan"
+                  sx={{
+                    textAlign: 'center',
+                    fontFamily: 'sans-serif',
+                    maxWidth: '100%',
+                    textOverflow: 'ellipsis',
+                    overflow: 'hidden',
+                  }}
                 >
                   {welcometext}
                 </Typography>
@@ -169,74 +182,77 @@ export const Birthday: FC = ({ children }) => {
                   />
                 </Typography>
                 <Typography sx={{ m: 1, marginBottom: '0px', marginTop: '45px' }} component="div">
-                  <InputLabel htmlFor="standard-adornment-password" sx={{ color: '#fff', fontSize: '20px' }}>
+                  <InputLabel
+                    htmlFor="standard-adornment-password"
+                    className="datespan"
+                    sx={{ color: '#fff', textOverflow: 'ellipsis', overflow: 'hidden' }}
+                  >
                     Date of birth
                   </InputLabel>
                 </Typography>
-                <Typography
-                  sx={{
-                    m: 1,
-                    width: '100%',
-                    display: 'flex',
-                    marginTop: '0px',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                  }}
-                  component="div"
-                >
-                  <FormControl sx={{ m: 1, minWidth: 120, marginLeft: '0px' }}>
-                    <InputLabel id="demo-simple-select-helper-label">Month</InputLabel>
-                    <Select
-                      labelId="demo-simple-select-helper-label"
-                      id="demo-simple-select-helper"
-                      value={month}
-                      label="Month"
-                      onChange={handleChange}
-                      autoWidth={true}
-                    >
-                      {montharray.map((month) => (
-                        <MenuItem value={month} key={month}>
-                          {month}
-                        </MenuItem>
-                      ))}
-                    </Select>
-                    <FormHelperText>{errormessagemonth}</FormHelperText>
-                  </FormControl>
-                  <FormControl sx={{ m: 1, minWidth: 120, marginLeft: '0px' }}>
-                    <InputLabel id="demo-simple-select-helper-label">Day</InputLabel>
-                    <Select
-                      labelId="demo-simple-select-helper-label"
-                      id="demo-simple-select-helper"
-                      value={day}
-                      label="Day"
-                      onChange={handleChangeday}
-                    >
-                      {dayarray.map((day) => (
-                        <MenuItem value={day} key={day}>
-                          {day}
-                        </MenuItem>
-                      ))}
-                    </Select>
-                    <FormHelperText>{errormessageday}</FormHelperText>
-                  </FormControl>
-                  <FormControl sx={{ m: 1, minWidth: 120, marginLeft: '0px' }}>
-                    <InputLabel id="demo-simple-select-helper-label">Year</InputLabel>
-                    <Select
-                      labelId="demo-simple-select-helper-label"
-                      id="demo-simple-select-helper"
-                      value={Year}
-                      label="Year"
-                      onChange={handleChangeYear}
-                    >
-                      {yeararray.map((year) => (
-                        <MenuItem value={year} key={year}>
-                          {year}
-                        </MenuItem>
-                      ))}
-                    </Select>
-                    <FormHelperText>{errormessageyear}</FormHelperText>
-                  </FormControl>
-                </Typography>
+
+                <Box sx={{ flexGrow: 1 }}>
+                  <Grid container spacing={2}>
+                    <Grid item xs={4}>
+                      <FormControl sx={{ m: 1, minWidth: '100%' }}>
+                        <InputLabel id="demo-simple-select-helper-label">Month</InputLabel>
+                        <Select
+                          labelId="demo-simple-select-helper-label"
+                          id="demo-simple-select-helper"
+                          value={month}
+                          label="Month"
+                          onChange={handleChange}
+                          autoWidth={true}
+                        >
+                          {montharray.map((month) => (
+                            <MenuItem className="month" value={month} key={month}>
+                              {month}
+                            </MenuItem>
+                          ))}
+                        </Select>
+                        <FormHelperText>{errormessagemonth}</FormHelperText>
+                      </FormControl>
+                    </Grid>
+                    <Grid item xs={4}>
+                      <FormControl sx={{ m: 1, minWidth: '100%' }}>
+                        <InputLabel id="demo-simple-select-helper-label">Day</InputLabel>
+                        <Select
+                          labelId="demo-simple-select-helper-label"
+                          id="demo-simple-select-helper"
+                          value={day}
+                          label="Day"
+                          onChange={handleChangeday}
+                        >
+                          {dayarray.map((day) => (
+                            <MenuItem value={day} key={day}>
+                              {day}
+                            </MenuItem>
+                          ))}
+                        </Select>
+                        <FormHelperText>{errormessageday}</FormHelperText>
+                      </FormControl>
+                    </Grid>
+                    <Grid item xs={4}>
+                      <FormControl sx={{ m: 1, minWidth: '100%' }}>
+                        <InputLabel id="demo-simple-select-helper-label">Year</InputLabel>
+                        <Select
+                          labelId="demo-simple-select-helper-label"
+                          id="demo-simple-select-helper"
+                          value={Year}
+                          label="Year"
+                          onChange={handleChangeYear}
+                        >
+                          {yeararray.map((year) => (
+                            <MenuItem value={year} key={year}>
+                              {year}
+                            </MenuItem>
+                          ))}
+                        </Select>
+                        <FormHelperText>{errormessageyear}</FormHelperText>
+                      </FormControl>
+                    </Grid>
+                  </Grid>
+                </Box>
                 <Typography sx={{ width: '100%', marginTop: '15px', textAlign: 'center' }} component="div">
                   <InputLabel id="demo-simple-select-helper-label">
                     Your age is private and will not be visible
@@ -254,6 +270,7 @@ export const Birthday: FC = ({ children }) => {
                 >
                   <ButtonWrapper
                     onClick={continuebutton}
+                    className="continous"
                     onMouseEnter={(e) => entercontinuebutton(e)}
                     onMouseLeave={(e) => leavecontinuebutton(e)}
                   >
@@ -279,13 +296,14 @@ const ButtonWrapper = styled('button')`
   border: solid;
   border-color: #fff;
   border-width: 1px;
-  padding-left: 100px;
-  padding-right: 100px;
-  padding-top: 13px;
-  padding-bottom: 13px;
-  font-size: 20px;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 5%;
+  padding-bottom: 5%;
   font-family: serif;
   color: #fff;
+  text-overflow: ellipsis;
+  overflow: hidden;
   width: 80%;
   cursor: pointer;
 `;

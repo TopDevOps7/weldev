@@ -19,8 +19,6 @@
   border-radius: 50%;
   border-width: 1px;
   border-color: #fff;
-  font-size: 35px !important;
-  padding: 8px;
 }
 #imagefield {
   cursor: all-scroll;
@@ -34,6 +32,9 @@
 .uploadedimage {
   cursor: all-scroll;
 }
+.uploadimage.css-0 {
+  width: 100%;
+}
 .linezoonprogress {
   border-top: 3px solid white;
   margin-bottom: 15px;
@@ -41,4 +42,68 @@
 }
 div.react-transform-component.transform-component-module_content__2jYgh {
   overflow-x: hidden;
+}
+.setpasswordspan {
+  font-family: 'sans-serif !important';
+}
+@media only screen and (max-device-width: 325px) {
+}
+
+@media only screen and (min-width: 768px) {
+  .setpasswordspan {
+    font-size: 25px !important;
+  }
+  .continous {
+    font-size: 20px !important;
+  }
+  .welcomspan {
+    font-size: 25px !important;
+  }
+  .datespan {
+    font-size: 20px !important;
+  }
+  .month {
+    font-size: 20px !important;
+  }
+  svg.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.css-eehk8s-MuiSvgIcon-root {
+    font-size: 60px;
+    padding: 19px;
+  }
+  .uplodspan {
+    font-size: 20px !important;
+  }
+  .uploadfield {
+    display: flex;
+  }
+}
+
+@media not screen and (min-width: 768px) {
+  svg.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.css-eehk8s-MuiSvgIcon-root {
+    font-size: 37px;
+    padding: 8px;
+  }
+  .uplodspan {
+    font-size: 15px !important;
+  }
+  .uploadfield {
+    display: flex;
+  }
+}
+@media not screen and (min-width: 300px) {
+  svg.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.css-eehk8s-MuiSvgIcon-root {
+    font-size: 25px;
+    padding: 2px;
+  }
+  .uplodspan {
+    font-size: 10px !important;
+  }
+  .uploadfield {
+    display: grid;
+  }
+  .continous {
+    font-size: 10px !important;
+  }
+  .setpasswordspan {
+    font-size: 10px !important;
+  }
 }

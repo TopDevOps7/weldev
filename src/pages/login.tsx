@@ -14,6 +14,8 @@ import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { Check } from '@mui/icons-material';
+import '../styles/custom.css';
+
 export const Login: FC = ({ children }) => {
   const [open, setOpen] = useState(false);
   const toggleNavigation = () => setOpen((status) => !status);
@@ -83,29 +85,30 @@ export const Login: FC = ({ children }) => {
   return (
     <LayoutWrapper>
       <ContentWrapper>
-        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+        <Box component="main" sx={{ flexGrow: 1, p: 3, width: '100%' }}>
           <Container maxWidth="md" sx={{ marginTop: '80px' }}>
             <Box
               sx={{
                 bgcolor: '#150F1A',
                 minHeight: '70vh',
-                padding: '5px 50px 10px 50px',
-                marginLeft: '135px',
-                marginRight: '135px',
+                padding: '1% 10% 2% 10%',
+                marginLeft: '10%',
+                marginRight: '10%',
                 boxShadow:
                   'rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px',
               }}
             >
               <Typography
                 component="div"
-                sx={{ marginTop: '5%', display: 'grid', justifyContent: 'center', alignItems: 'center' }}
+                sx={{ marginTop: '5%', padding: '5%', justifyContent: 'center', alignItems: 'center' }}
               >
                 <Typography component="div" sx={{ display: 'grid', justifyContent: 'center', alignItems: 'center' }}>
                   <StyledLogo src={iconimage} alt="icon" />
                 </Typography>
                 <Typography
                   component="p"
-                  sx={{ marginTop: '15%', fontSize: '25px', fontFamily: 'sans-serif', maxWidth: '60%' }}
+                  className="setpasswordspan"
+                  sx={{ marginTop: '8%', maxWidth: '60%', textOverflow: 'ellipsis', overflow: 'hidden' }}
                 >
                   Set a password for adam@gmail.com
                 </Typography>
@@ -160,7 +163,7 @@ export const Login: FC = ({ children }) => {
                   component="div"
                   sx={{
                     width: '100%',
-                    marginTop: '60px',
+                    marginTop: '15%',
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
@@ -168,6 +171,7 @@ export const Login: FC = ({ children }) => {
                 >
                   <ButtonWrapper
                     onClick={continuebutton}
+                    className="continous"
                     onMouseEnter={(e) => entercontinuebutton(e)}
                     onMouseLeave={(e) => leavecontinuebutton(e)}
                   >
@@ -191,11 +195,12 @@ const ButtonWrapper = styled('button')`
   outline: none;
   border-radius: 50px;
   border: none;
-  padding-left: 100px;
-  padding-right: 100px;
-  padding-top: 13px;
-  padding-bottom: 13px;
-  font-size: 20px;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 5%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding-bottom: 5%;
   font-family: serif;
   color: #0a070c;
   width: 80%;

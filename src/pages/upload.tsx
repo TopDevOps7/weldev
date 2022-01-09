@@ -107,15 +107,15 @@ export const Upload: FC = ({ children }) => {
   return (
     <LayoutWrapper>
       <ContentWrapper>
-        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-          <Container maxWidth="md" sx={{ marginTop: '80px' }}>
+        <Box component="main" sx={{ flexGrow: 1, p: 3, width: '100%' }}>
+          <Container maxWidth="md" sx={{ marginTop: '80px', width: '100%' }}>
             <Box
               sx={{
                 bgcolor: '#150F1A',
                 minHeight: '70vh',
-                padding: '5px 50px 35px 50px',
-                marginLeft: '135px',
-                marginRight: '135px',
+                padding: '1% 10% 4% 10%',
+                marginLeft: '10%',
+                marginRight: '10%',
                 boxShadow:
                   'rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px',
               }}
@@ -126,10 +126,10 @@ export const Upload: FC = ({ children }) => {
                 </Typography>
                 <Typography
                   component="p"
+                  className="setpasswordspan"
                   sx={{
                     marginTop: '10px',
                     textAlign: 'center',
-                    fontSize: '25px',
                     fontFamily: 'sans-serif',
                     maxWidth: '100%',
                   }}
@@ -139,7 +139,8 @@ export const Upload: FC = ({ children }) => {
                 {!displayflagupload && (
                   <Typography
                     component="div"
-                    sx={{ marginTop: '5%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+                    className="uploadfield"
+                    sx={{ marginTop: '5%', justifyContent: 'center', alignItems: 'center' }}
                   >
                     <Typography component="div" sx={{ position: 'relative' }}>
                       <AddOutlined
@@ -154,8 +155,8 @@ export const Upload: FC = ({ children }) => {
                       />
                       <input id="profilePic" type="file" onChange={(e) => onChangePicture(e)} />
                     </Typography>
-                    <Typography component="div" sx={{ position: 'relative', marginLeft: '10px' }}>
-                      <InputLabel>Upload a picture</InputLabel>
+                    <Typography component="div" sx={{ position: 'relative', marginLeft: '5%' }}>
+                      <InputLabel className="uplodspan">Upload a picture</InputLabel>
                     </Typography>
                   </Typography>
                 )}
@@ -213,7 +214,12 @@ export const Upload: FC = ({ children }) => {
                                     </div>
                                     <TransformComponent>
                                       <Typography component="div" sx={{ cursor: ' all-scroll' }}>
-                                        <img src={uploadimage} className="uploadedimage" alt={value.name} />
+                                        <img
+                                          src={uploadimage}
+                                          style={{ width: '100%' }}
+                                          className="uploadedimage"
+                                          alt={value.name}
+                                        />
                                       </Typography>
                                     </TransformComponent>
                                   </Typography>
@@ -292,6 +298,7 @@ export const Upload: FC = ({ children }) => {
                 >
                   <ButtonWrapper
                     onClick={continuebutton}
+                    className="continous"
                     onMouseEnter={(e) => entercontinuebutton(e)}
                     onMouseLeave={(e) => leavecontinuebutton(e)}
                   >
@@ -315,11 +322,13 @@ const ButtonWrapper = styled('button')`
   outline: none;
   border-radius: 50px;
   border: none;
-  padding-left: 100px;
-  padding-right: 100px;
-  padding-top: 13px;
-  padding-bottom: 13px;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 5%;
+  padding-bottom: 5%;
   font-size: 20px;
+  text-overflow: ellipsis;
+  overflow: hidden;
   font-family: serif;
   color: #0a070c;
   width: 80%;
